@@ -22,26 +22,4 @@ $('#country').change(function(){
         $("#city").empty();
     }      
     });
-    $('#state').on('change',function(){
-    var stateID = $(this).val();    
-    if(stateID){
-        $.ajax({
-            type:"GET",
-            url:"{{url('api/get-city-list')}}/"+stateID,
-            success:function(res){               
-            if(res){
-                $("#city").empty();
-                $.each(res,function(key,value){
-                    $("#city").append('<option value="'+value.id+'">'+value.city_name+'</option>');
-                });
-            
-            }else{
-                $("#city").empty();
-            }
-            }
-        });
-    }else{
-        $("#city").empty();
-    }
-        
-    });
+   
